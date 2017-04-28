@@ -1,0 +1,19 @@
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (max-width: 64.375em) { @content; }
+  }
+  @else if $point == medium {
+    @media (max-width: 50em) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 37.5em)  { @content; }
+  }
+}
+
+// Example of usage
+.page-wrap {
+  width: 75%;
+  @include breakpoint(large) { width: 60%; }
+  @include breakpoint(medium) { width: 80%; }
+  @include breakpoint(small) { width: 95%; }
+}
